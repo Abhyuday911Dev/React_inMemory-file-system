@@ -29,7 +29,7 @@ function App() {
         <button className="btn btn-primary btn-lg" onClick={handleSave}>
           Save
         </button>
-        <button className="btn btn-primary mt-4 btn-lg" onClick={handleLoad}>
+        <button className="btn btn-primary mt-3 btn-lg" onClick={handleLoad}>
           Load
         </button>
       </div>

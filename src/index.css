@@ -1,0 +1,12 @@
+/* @font-face {
+    font-family: gilroy;
+    src: url(./public/fonts/Gilroy-Regular.ttf)format("truetype");
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+    background-color: #2a2a2a;
+}
