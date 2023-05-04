@@ -12,6 +12,7 @@ function App() {
   const handleSave = async () => {
     try {
       await fileSystem.writeFile("/myFile.txt", text);
+      setText("");
       console.log("write hua");
     } catch (error) {
       console.log(error);
@@ -24,7 +25,11 @@ function App() {
   };
   return (
     <div className="container d-flex flex-column justify-content-evenly vh-100">
-      <textarea className="h-75 form-control" value={text} onChange={(e) => setText(e.target.value)} />
+      <textarea
+        className="h-75 form-control"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
       <div className="button-div d-flex flex-column">
         <button className="btn btn-primary btn-lg" onClick={handleSave}>
           Save
