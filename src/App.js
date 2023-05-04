@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import InMemoryFileSystem from "./inMemoryFileSystem";
+
+const fileSystem = new InMemoryFileSystem();
 
 function App() {
+  fileSystem.mkdir("/");
+  fileSystem.mkdir("/myFile.txt");
+  const [text, setText] = useState("");
+
+  const handleSave = async () => {
+    try {
+      await fileSystem.writeFile("/myFile.txt", text);
+      console.log("write hua");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleLoad = () => {
+    const data = fileSystem.readFile("/myFile.txt");
+    setText(data);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <textarea value={text} onChange={(e) => setText(e.target.value)} />
+      <button onClick={handleSave}>Save</button>
+      <button onClick={handleLoad}>Load</button>
     </div>
   );
 }
