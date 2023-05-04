@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InMemoryFileSystem from "./inMemoryFileSystem";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const fileSystem = new InMemoryFileSystem();
 
@@ -23,10 +23,16 @@ function App() {
     setText(data);
   };
   return (
-    <div className="container d-flex flex-column justify-content-evenly">
-      <textarea value={text} onChange={(e) => setText(e.target.value)} />
-      <button className="btn btn-primary mt-4" onClick={handleSave}>Save</button>
-      <button className="btn btn-primary mt-4" onClick={handleLoad}>Load</button>
+    <div className="container d-flex flex-column justify-content-evenly vh-100">
+      <textarea className="h-75 form-control" value={text} onChange={(e) => setText(e.target.value)} />
+      <div className="button-div d-flex flex-column">
+        <button className="btn btn-primary btn-lg" onClick={handleSave}>
+          Save
+        </button>
+        <button className="btn btn-primary mt-4 btn-lg" onClick={handleLoad}>
+          Load
+        </button>
+      </div>
     </div>
   );
 }
